@@ -1,0 +1,206 @@
+/*Success and error modals*/
+
+.modal-confirm {
+    color: #636363;
+    width: 400px;
+}
+.modal-confirm .modal-content {
+    padding: 20px;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+    font-size: 14px;
+}
+.modal-confirm .modal-header {
+    border-bottom: none;
+    position: relative;
+}
+.modal-confirm h4 {
+    text-align: center;
+    font-size: 26px;
+    margin: 30px 0 -10px;
+}
+.modal-confirm .close {
+    position: absolute;
+    top: -5px;
+    right: -2px;
+}
+.modal-confirm .modal-body {
+    color: #999;
+}
+.modal-confirm .modal-footer {
+    border: none;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 13px;
+    padding: 10px 15px 25px;
+}
+.modal-confirm .modal-footer a {
+    color: #999;
+}
+.modal-confirm .icon-box {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    border-radius: 50%;
+    z-index: 9;
+    text-align: center;
+    border: 3px solid #f15e5e;
+}
+.modal-confirm .icon-box i {
+    color: #f15e5e;
+    font-size: 46px;
+    display: inline-block;
+    margin-top: 13px;
+}
+.modal-confirm .icon-box-su {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    border-radius: 50%;
+    z-index: 9;
+    text-align: center;
+    border: 3px solid #47c9a2;
+}
+.modal-confirm .icon-box-su i {
+    color: #47c9a2;
+    font-size: 46px;
+    display: inline-block;
+    margin-top: 13px;
+}
+.modal-confirm .icon-box-su-warning {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+    border-radius: 50%;
+    z-index: 9;
+    text-align: center;
+    border: 3px solid #ffbd04;
+}
+.modal-confirm .icon-box-su-warning i {
+    color: #ffbd04;
+    font-size: 46px;
+    display: inline-block;
+    margin-top: 13px;
+}
+
+.modal-confirm .btn {
+    color: #fff;
+    border-radius: 4px;
+    background: #60c7c1;
+    text-decoration: none;
+    transition: all 0.4s;
+    line-height: normal;
+    min-width: 120px;
+    border: none;
+    min-height: 40px;
+    border-radius: 3px;
+    margin: 0 5px;
+    outline: none !important;
+}
+.modal-confirm .btn-info {
+    background: #c1c1c1;
+}
+.modal-confirm .btn-info:hover, .modal-confirm .btn-info:focus {
+    background: #a8a8a8;
+}
+.modal-confirm .btn-danger {
+    background: #f15e5e;
+}
+.modal-confirm .btn-danger:hover, .modal-confirm .btn-danger:focus {
+    background: #ee3535;
+}
+.trigger-btn {
+    display: inline-block;
+    margin: 100px auto;
+}
+
+.row-eq-height {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display:         flex;
+}
+
+.m-widget1__item:first-child {
+    padding-top: .8rem;
+}
+
+.m-widget1__item {
+    padding: 1.1rem 0;
+    padding-top: 1.1rem;
+}
+.m-widget1__item {
+    border-bottom: .07rem dashed #ebedf2;
+}
+.m-widget2__item {
+    padding: 1.1rem 0;
+    padding-top: 1.1rem;
+}
+/*.row.m-row--col-separator-xl > div {
+    border-bottom: 0;
+    border-right: 1px solid #ebedf2;
+}*/
+.m-widget1 {
+    padding: 2.2rem;
+}
+.col {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+}
+
+.m-widget1 .m-widget1__item .m-widget1__number {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.m-portlet {
+    -webkit-box-shadow: 0 1px 15px 1px rgba(69,65,78,.08);
+    -moz-box-shadow: 0 1px 15px 1px rgba(69,65,78,.08);
+    box-shadow: 0 1px 15px 1px rgba(69,65,78,.08);
+    background-color: #fff;
+    margin-bottom: 2.2rem;
+}
+.m-portlet .font-span{
+    font-weight: 900;
+    font-size: 18px;
+}
+.m-portlet .desc{
+    color: #9699a2;
+}
+
+.success{
+    color:#34bfa3;
+}
+.error{
+    color:#f4516c;
+}
+.other1{
+    color:#22b9ff;
+}
+.other2{
+    color:#ffb822;
+}
+.other3{
+    color:#2862ac;
+}
+.col-xs-4-widget{
+    border-bottom: 0;
+    border-right: 1px solid #ebedf2;
+    /*border-bottom: 1px solid #ebedf2;*/
+}
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 1;
+    letter-spacing: normal;
+    text-transform: none;
+    display: inline-block;
+    white-space: nowrap;
+    word-wrap: normal;
+    direction: ltr;
+    /* -webkit-font-feature-settings: 'liga'; */
+    -webkit-font-smoothing: antialiased;
+}

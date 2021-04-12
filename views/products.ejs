@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title><%= title %></title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link  href= "/css/style.css"  type="text/css">
+    <link  href="/css/extra.css" type="text/css">
+    <link  href="/css/nav.css" type="text/css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+        
+    
+</head>
+<body style="min-height: 100%;">
+    <form method="POST">
+
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    
+                </div>
+            </div>
+        </nav>
+
+    <div class="container-fluid text-center">
+        <div class="row content">
+
+            <div class="col-sm-2 sidenav">
+                <div class="well">
+                    <p><a href="/" id="userlist">Products List</a></p></div>
+                <div class="well">
+                    <p><a href="#" id="courselist">My Basket</a></p></div>
+            </div>
+
+            <div class="col-sm-8 text-left">
+              
+                <div id="productsDiv">
+                    <h3 align="center" >List of Products</h3>
+                    <table class="table table-hover" id="products-table">
+                        <thead></thead>
+                            <th>SL.No</th>
+                            <th>Item</th>
+                            <th>Price</th>
+                            <th>Add Item To Cart</th>
+                        </thead>
+                        <tbody id='tbody'>
+                            <% for(var i=0; i<products.length; i++) {%>
+                            <tr>
+                                <td><%= (i + 1) %></td>
+                                <td><%= products[i].item %></td>
+                                <td><%= products[i].price %></td>
+                                <td><input type="number" id='<%= products[i].item %>'></td>
+                            </tr>
+                            <% } %>
+                        </tbody>
+                    </table>
+                    <input type="button" id="addToCart" style="margin-left:460px" value="Add to Cart"></input>
+                </div>
+ 
+        </div>
+    </div>
+    </div>
+    
+
+
+</form>
+
+
+
+<script>
+    var table;
+
+       $("#addToCart").on('click', function(){
+            var addItem = {}
+            addItem.itemA = $("#A").val();
+            addItem.itemB = $("#B").val();
+            addItem.itemC = $("#C").val();
+            addItem.itemD = $("#D").val();
+            $.ajax({
+                    url: "/products/addItemtoCart",
+                    type: "POST",
+                    data: JSON.stringify(addItem),
+                    contentType : 'application/json; charset=utf-8',
+                    success: function (result) {
+                    // for(var i=0;i<result.length;i++){
+                    //     var course = "<tr><td></td><td>" + result[i].courseName + "</td><td>" + result[i].author + "</td><td>" + result[i].lessons + "</td><td>" + result[i].fee + "</td></tr>"
+                    //     $("table tbody").append(course);
+                    // }
+                    
+                }}) 
+       })
+
+    function reloadPage(){
+        setTimeout(location.reload.bind(location),0);
+    }
+
+</script>
+
+
+</body>
+</html>
