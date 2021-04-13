@@ -27,12 +27,12 @@ async function addItemToCart({ req, res }) {
             saveData.itemC = req.body.itemC
             saveData.itemD = req.body.itemD
         }
-        let saveData = await CartModel.addItems(saveData)
-
+        const res = await CartModel.addItems(saveData)
+        return res
 
 
     } catch(e) {
-
+        console.log("Error while adding item to cart.....")
     }
 
 }

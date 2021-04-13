@@ -4,13 +4,16 @@ async function getAllCartItems({ req, res }) {
     try {
             
         let data = await CartModel.getItemsInCart()
-        res.render('products', {
-            title : 'List of Products',
-            products : data
-        });
+        if(data.status) {
+            res.render('basket', {
+                title : 'My Basket',
+                carts : data.data,
+                sum: data.totalPrice
+            });
+        }
         
     } catch(e) {
-        console.log("Error while fetching products")
+        console.log("Error while fetching basket")
     }
    
 }

@@ -37,26 +37,31 @@
             <div class="col-sm-8 text-left">
               
                 <div id="productsDiv">
-                    <h3 align="center" >List of Products</h3>
+                    <h3 align="center" >List of items in basket</h3>
                     <table class="table table-hover" id="products-table">
                         <thead></thead>
                             <th>SL.No</th>
                             <th>Item</th>
-                            <th>Price</th>
-                            <th>Add Item To Cart</th>
+                            <th>Quantity</th>
+                            <th>Individual Price</th>
+                            <th>Actual Price</th>
+                            <th>Price after discount</th>
                         </thead>
                         <tbody id='tbody'>
-                            <% for(var i=0; i<products.length; i++) {%>
+                            <% for(var i=0; i<carts.length; i++) {%>
                             <tr>
                                 <td><%= (i + 1) %></td>
-                                <td><%= products[i].item %></td>
-                                <td><%= products[i].price %></td>
-                                <td><input type="number" id='<%= products[i].item %>'></td>
+                                <td><%= carts[i].item %></td>
+                                <td><%= carts[i].addedItemsCount %></td>
+                                <td><%= carts[i].individualPrice %></td>
+                                <td><%= carts[i].actualPrice %></td>
+                                <td><%= carts[i].discountPrice %></td>
                             </tr>
                             <% } %>
                         </tbody>
                     </table>
-                    <input type="button" id="addToCart" style="margin-left:460px" value="Add to Cart"></input>
+                    <span style="margin-left:725px">Total Price : <%= sum %></span>
+
                 </div>
  
         </div>
@@ -71,41 +76,6 @@
 
 <script>
     var table;
-
-       $("#addToCart").on('click', function(){
-            var addItem = [
-                {
-                    item : 'A',
-                    addedcount : $("#A").val()
-                },
-                {
-                    item : 'B',
-                    addedcount : $("#B").val()
-                },
-                {
-                    item : 'C',
-                    addedcount : $("#C").val()
-                },
-                {
-                    item : 'D',
-                    addedcount : $("#D").val()
-                },
-
-            ]
-
-            $.ajax({
-                    url: "/products/addItemtoCart",
-                    type: "POST",
-                    data: addItem,
-                    contentType : 'application/json; charset=utf-8',
-                    success: function (result) {
-                    // for(var i=0;i<result.length;i++){
-                    //     var course = "<tr><td></td><td>" + result[i].courseName + "</td><td>" + result[i].author + "</td><td>" + result[i].lessons + "</td><td>" + result[i].fee + "</td></tr>"
-                    //     $("table tbody").append(course);
-                    // }
-                    
-                }}) 
-       })
 
     function reloadPage(){
         setTimeout(location.reload.bind(location),0);
