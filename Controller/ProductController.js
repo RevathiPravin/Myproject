@@ -20,19 +20,12 @@ async function addItemToCart({ req, res }) {
 
     try {
        
-        let saveData = {}
-        if(req.body != undefined && req.body != null) {
-            saveData.itemA = req.body.itemA
-            saveData.itemB = req.body.itemB
-            saveData.itemC = req.body.itemC
-            saveData.itemD = req.body.itemD
-        }
-        const res = await CartModel.addItems(saveData)
+       
         return res
 
 
     } catch(e) {
-        console.log("Error while adding item to cart.....")
+        console.log("Error while adding item to cart.....",e)
     }
 
 }

@@ -96,13 +96,10 @@
             $.ajax({
                     url: "/products/addItemtoCart",
                     type: "POST",
-                    data: addItem,
+                    data: JSON.stringify(addItem),
                     contentType : 'application/json; charset=utf-8',
                     success: function (result) {
-                    // for(var i=0;i<result.length;i++){
-                    //     var course = "<tr><td></td><td>" + result[i].courseName + "</td><td>" + result[i].author + "</td><td>" + result[i].lessons + "</td><td>" + result[i].fee + "</td></tr>"
-                    //     $("table tbody").append(course);
-                    // }
+                        alert("Success")
                     
                 }}) 
        })
