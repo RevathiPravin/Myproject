@@ -1,0 +1,21 @@
+1. create event collection --- to see free slots
+
+
+
+Sun May 16 2021 15:30:00 GMT+0530 - Sun May 16 2021 16:00:00 GMT+0530
+aaav......... 2021-05-16T10:00:00.000Z
+aa........... Sun May 16 2021 16:00:00 GMT+0530 - Sun May 16 2021 16:30:00 GMT+0530
+aaav......... 2021-05-16T10:30:00.000Z
+aa........... Sun May 16 2021 16:30:00 GMT+0530 - Sun May 16 2021 17:00:00 GMT+0530
+aaav......... 2021-05-16T11:00:00.000Z
+
+
+IST -  4:30pm 
+GMT -  11:00am
+
+for india, ist = gmt + 5:30
+for australia, aest = gmt + 10
+
+            console.log("a...........",moment(timeSlices[i]).utc().format('DD/MM/YYYY hh:mm:ss A')
+            console.log("a...........",moment(timeSlices[i]).format('DD/MM/YYYY hh:mm:ss A')
+
