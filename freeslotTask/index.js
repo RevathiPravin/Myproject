@@ -2,8 +2,6 @@ const express = require('express');
 const app = express();
 const SlotController = require('./Controller/SlotController')
 const EventController = require('./Controller/EventController')
-const CartController = require('./Controller/CartController')
-//const EventModel = require('./Model/Event.js')
 
 var bodyParser = require('body-parser');  
 
