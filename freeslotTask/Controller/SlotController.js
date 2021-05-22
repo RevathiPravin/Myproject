@@ -51,7 +51,6 @@ async function getAllSlotsBasedOnDate(req) {
         } else {
             where.dateTime = { '$gte' : new Date(startDate) , '$lte' : new Date(endDate) }
         }
-        console.log("where........",where)
         const { status , message , data } = await SlotModel.getAllSlots(where, timeZone)
         res.status = status
         res.message = message
@@ -74,9 +73,6 @@ async function getFreeSlots(data) {
 
     const res = {}
     try {
-        
-        let getDate = moment()
-        let timeZone = 'US/Eastern'
 
         let where = { dateTime : new Date(startDate) }
         const { status , message , data } = await SlotModel.getAllSlots(where)

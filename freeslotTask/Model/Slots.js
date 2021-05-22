@@ -30,12 +30,12 @@ async function getAllSlots(where,timeZone) {
         let data = []
         let dateTime = []
         await res.forEach(item => {
-            console.log("item.dateTime.........",item.dateTime)
             if(item.dateTime != null) {
                 dateTime.push(item.dateTime)
                 var m = moment.tz(item.dateTime, 'DD/MM/YYYY h:mm:ss A', timeZone);
                 item.freeSlot = m.format('DD/MM/YYYY HH:mm:ss A')
             }
+            console.log("response.....",item)
             data.push(item)
         })
         return { status : true, message : 'success' , data : data }
