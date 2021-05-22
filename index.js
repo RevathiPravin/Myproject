@@ -18,5 +18,9 @@ app.post('/get-all-slots', (req, res) => {
 })
 app.get('/create-event', EventController.createEvent)
 
+const host = '0.0.0.0';
+const port = process.env.PORT || 5000;
 
-app.listen(8080);
+app.listen(port, host, function() {
+    console.log("Server started.......");
+  });
