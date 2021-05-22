@@ -99,4 +99,7 @@ async function renderSlotPage(req, res) {
         title : 'Slots'
     });
 }
+
+
+
 module.exports = { createSlot , getAllSlotsBasedOnDate , getFreeSlots , renderSlotPage};
