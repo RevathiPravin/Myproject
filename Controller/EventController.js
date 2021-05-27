@@ -3,23 +3,25 @@ const SlotModel = require('../Model/Slots.js')
 const moment = require('moment');
 const custom = require('../Config/custom.js')
 
-async function createEvent() {
+async function createEvent(request, response) {
 
-    const res = {
+    const resData = {
         status : false,
         message : 'Oops! Unable to create event'
     }
     try {
+        console.log("aaa")
         const dateTime = moment()
         const duration = 30
         const saveData  = {
             dateTime : new Date(dateTime),
             duration : duration
         }
+        console.log("sa.....",saveData)
         const { status , message , error} = await EventModel.createEvent(saveData)
-        res.status = status
-        res.message = message
-        return res
+        resData.status = status
+        resData.message = message
+        response.send(resData)
 
     } catch(error) {
 

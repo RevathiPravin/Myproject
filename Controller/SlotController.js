@@ -3,9 +3,9 @@ const moment = require('moment');
 const custom = require('../Config/custom.js')
 const EventModel = require('../Model/Event.js')
 
-async function createSlot(data) {
+async function createSlot(req,res) {
 
-    const res = {}
+    const resData = {}
     try {
         
         const interval = custom.timeConfig.duration;
@@ -22,9 +22,8 @@ async function createSlot(data) {
         
         const { status , message , error} = await SlotModel.createSlot(timeSlot)
         res.status = status
-        res.message = message
-        return res
-
+        res.message = 'Success'
+        res.send(resData)
     } catch(error) {
 
         console.log("Error while creating event")
@@ -53,8 +52,11 @@ async function getAllSlotsBasedOnDate(req) {
         }
         const { status , message , data } = await SlotModel.getAllSlots(where, timeZone)
         res.status = status
-        res.message = message
         res.data = data
+        res.message = 'Success'
+        if(data.length == 0) {
+            res.message = 'No slots found'
+        }
         return res        
 
     } catch(error) {

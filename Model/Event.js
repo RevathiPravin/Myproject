@@ -11,7 +11,7 @@ async function createEvent(data) {
         client = await mongoClient.connect(url);
         db = client.db(dbName);
         let dbCollection = db.collection('events');
-        let res = await dbCollection.create(data); 
+        let res = await dbCollection.insert(data); 
         return { status : true, message : 'success' }
 
     } catch(e) {
@@ -31,7 +31,6 @@ async function getAllEvents() {
         await res.forEach(item => {
             data.push(item.dateTime)
         })
-        console.log("data..........",data)
         return { resData : data }
 
     } catch(e) {
