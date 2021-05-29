@@ -29,7 +29,7 @@ async function getAllEvents() {
         let res =  dbCollection.find(); 
         let data = []
         await res.forEach(item => {
-            data.push(item.dateTime)
+            data.push(item.gmtDateTime)
         })
         return { resData : data }
 

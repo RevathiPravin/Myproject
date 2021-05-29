@@ -10,15 +10,20 @@ async function createEvent(request, response) {
         message : 'Oops! Unable to create event'
     }
     try {
-        console.log("aaa")
         const dateTime = moment()
         const duration = 30
         const saveData  = {
-            dateTime : new Date(dateTime),
+            gmtDateTime : new Date(dateTime),
             duration : duration
         }
-        console.log("sa.....",saveData)
         const { status , message , error} = await EventModel.createEvent(saveData)
+        if(status) {
+            let where = {
+                reqDate : dateTime.format('YYYY-MM-DD'),
+                reqDateTime : saveData.gmtDateTime
+            }
+            let updateSlot = await SlotModel.updateSlot(where)
+        }
         resData.status = status
         resData.message = message
         response.send(resData)
@@ -26,9 +31,9 @@ async function createEvent(request, response) {
     } catch(error) {
 
         console.log("Error while creating event")
-        res.status = false
-        res.message = message
-        res.error = error
+        resData.status = false
+        resData.message = message
+        resData.error = error
         return res
         
     }

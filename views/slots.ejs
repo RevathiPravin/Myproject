@@ -662,11 +662,13 @@
 
                 </div>
             </form>
+            <br>
+            <br>
         </div>
+        
     </div>
     </div>
     
-
 
 </form>
 
@@ -694,6 +696,15 @@
             contentType : 'application/json; charset=utf-8',
             success: function (result) {
                 console.log(result)
+                alert("Received data. please check console...")
+                // if(result && result.data.length > 0) {
+                //     $.each(result.data, function(index, item){
+                //         data.push(item.reqrequestedZoneTime)
+                //         console.log("item.......",item)
+                //         console.log("index........",index)
+                //         $('#listOfSlots').append('<span>'+item.reqrequestedZoneTime+'</span>')
+                //     })
+                // }
             }}) 
     })
 

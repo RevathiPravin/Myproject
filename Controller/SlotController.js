@@ -17,7 +17,7 @@ async function createSlot(req,res) {
         const timeSlices = custom.splitTime(startTime,endTime,interval);
         const timeSlot = []
         timeSlices.forEach(function (item, index) {            
-            timeSlot.push({ 'dateTime' : new Date(timeSlices[index]) , duration : interval })
+            timeSlot.push({ 'gmtDateTime' : new Date(timeSlices[index]) , duration : interval , isAvailable : 'Available'})
         }) 
         
         const { status , message , error} = await SlotModel.createSlot(timeSlot)
@@ -44,12 +44,8 @@ async function getAllSlotsBasedOnDate(req) {
         let endDate = moment(req.endDate, 'MM/DD/YYYY')
         let timeZone = req.timeZone
         let where = {}
-        const { resData } = await EventModel.getAllEvents()
-        if(resData.length > 0) {
-            where.dateTime = { '$gte' : new Date(startDate) , '$lte' : new Date(endDate), "$nin" : resData }
-        } else {
-            where.dateTime = { '$gte' : new Date(startDate) , '$lte' : new Date(endDate) }
-        }
+        where.gmtDateTime = { '$gte' : new Date(startDate) , '$lte' : new Date(endDate) }
+        where.isAvailable = 'Available'
         const { status , message , data } = await SlotModel.getAllSlots(where, timeZone)
         res.status = status
         res.data = data
@@ -76,7 +72,7 @@ async function getFreeSlots(data) {
     const res = {}
     try {
 
-        let where = { dateTime : new Date(startDate) }
+        let where = { gmtDateTime : new Date(startDate) }
         const { status , message , data } = await SlotModel.getAllSlots(where)
         res.status = status
         res.message = message
