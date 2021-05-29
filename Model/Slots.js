@@ -1,5 +1,5 @@
 let mongoClient = require('mongodb').MongoClient;
-let url = 'mongodb://localhost:27017'
+let url = 'mongodb://192.168.29.8:27017'
 let db, client
 let dbName = 'task_go'
 const moment = require('moment-timezone')
