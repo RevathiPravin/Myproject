@@ -1,7 +1,7 @@
 let mongoClient = require('mongodb').MongoClient;
-let url = 'mongodb://192.168.29.8:27017'
+let url = 'mongodb+srv://revathi_0912:Redhu0912@cluster0.jjilm.mongodb.net/freeslot?retryWrites=true&w=majority'
 let db, client
-let dbName = 'task_go'
+let dbName = 'freeslot'
 
 
 async function createEvent(data) {
