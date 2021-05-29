@@ -16,6 +16,7 @@ async function createSlot(data) {
         return { status : true, message : 'success' }
 
     } catch(e) {
+        console.log("<========createSlot===========>",e)
         return { status : false, message : 'failure', error : e }
     }
 }
@@ -39,6 +40,7 @@ async function getAllSlots(where,timeZone) {
         return { status : true, message : 'success' , data : data }
 
     } catch(e) {
+        console.log("<========getAllSlots===========>",e)
         return { status : false, message : 'failure', error : e}
     }
 }
@@ -62,6 +64,7 @@ async function updateSlot(where) {
 
 
     } catch(e) {
+        console.log("<========updateSlot===========>",e)
         return { status : false, message : 'failure', error : e}
     }
 }

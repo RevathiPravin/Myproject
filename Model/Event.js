@@ -15,6 +15,7 @@ async function createEvent(data) {
         return { status : true, message : 'success' }
 
     } catch(e) {
+        console.log("<========createEvent===========>",e)
         return { status : false, message : 'failure', error : e }
     }
 }
@@ -34,6 +35,7 @@ async function getAllEvents() {
         return { resData : data }
 
     } catch(e) {
+        console.log("<========getAllEvents===========>",e)
         return { status : false, message : 'failure', error : e}
     }
 }
